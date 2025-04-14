@@ -1,0 +1,33 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class OperationModel extends Model
+{
+    use HasFactory;
+
+
+
+   protected $table = 'operations';
+
+    protected $fillable = [
+        'area_of_operation_id',
+        'basic_info_id',
+        'user_id',
+        'future_plan_file',
+        'plan_operation_file',
+        'progress_report_file',
+        'first_meeting_file',
+        'last_meeting_file',
+    ];
+
+    public function areaOfOperation()
+    {
+        return $this->belongsTo(Operationarea::class, 'area_of_operation_id', 'id');
+    }
+    
+
+}
